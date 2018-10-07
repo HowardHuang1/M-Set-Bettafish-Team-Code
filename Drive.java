@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.*;
 
 @TeleOp(name="abinavkapoor")
-public class TO extends LinearOpMode {
+public class Drive extends LinearOpMode {
 	// mecanum wheels
 	private DcMotor leftFront;
 	private DcMotor rightFront;

@@ -19,8 +19,8 @@ public class TO extends LinearOpMode {
 		rightFront = hardwareMap.get(DcMotor.class, "rf");
 		leftBack = hardwareMap.get(DcMotor.class, "lb");
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
-		intake = hardwareMap.get(DcMotor.class, "is"); // intake spin
-		intakeArm = hardwareMap.get(Servo.class, "ia"); // intake arm
+		// intake = hardwareMap.get(DcMotor.class, "is"); // intake spin
+		// intakeArm = hardwareMap.get(Servo.class, "ia"); // intake arm
 		
 		telemetry.addData("Status", "Initialized");
 		telemetry.update();
@@ -46,10 +46,10 @@ public class TO extends LinearOpMode {
 			leftFront.setPower(v1);
 			rightFront.setPower(v2);
 			leftBack.setPower(v3);
-			rightBack.setPower(v4);
+			rightBack.setPower(-v4);
 			
 			// constantly rotate the intake at full power
-			intake.setPower(1);
+			// intake.setPower(1);
 			
 		}
 	}

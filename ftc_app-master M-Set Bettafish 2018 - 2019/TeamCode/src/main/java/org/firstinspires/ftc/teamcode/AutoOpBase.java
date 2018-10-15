@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.*;
+import com.qualcomm.robotcore.hardware.*;
+
 /**
  * Created by howardhuang on 10/6/18.
  */
 
 @Autonomous(name="duehoang")
-public class AutoOpBase{
+public class AutoOpBase extends LinearOpMode{
 	public void runOpMode() {
 		while (true) {
 			double leftX = 0;

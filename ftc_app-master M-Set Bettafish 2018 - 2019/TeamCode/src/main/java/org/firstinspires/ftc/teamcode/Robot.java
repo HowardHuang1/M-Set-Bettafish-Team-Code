@@ -13,12 +13,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Robot{
 
-    private DcMotor leftFrontMotor;
-    private DcMotor rightFrontMotor;
-    private DcMotor leftBackMotor;
-    private DcMotor rightBackMotor;
-    private DcMotor intake; // constantly runs
-    private Servo intakeArm;
 
     static final double AUTO_DRIVE_SPEED_SLOW = 0.25;
     static final double AUTO_DRIVE_SPEED_NORMAL = 0.5;

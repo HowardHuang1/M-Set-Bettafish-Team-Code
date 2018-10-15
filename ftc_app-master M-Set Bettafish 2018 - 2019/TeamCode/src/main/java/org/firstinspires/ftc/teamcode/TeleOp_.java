@@ -68,26 +68,11 @@ public class TeleOp_ extends LinearOpMode {
     // pre-coded drive Speeds
     // Mecanum power is determined by Speed, Turn, and Strafe
     public void MecanumDrive() {
-        /*
         double Speed = -gamepad1.left_stick_y;
         double Turn = gamepad1.left_stick_x;
         double Strafe = gamepad1.right_stick_x;
         double MAX_SPEED = 1.0;
         holonomic(Speed, Turn, Strafe, MAX_SPEED);
-        */
-        double leftX = gamepad1.left_stick_x;
-        double leftY = gamepad1.left_stick_y;
-        double rightX = gamepad1.right_stick_x;
-          
-        final double v1 = leftY-leftX + rightX;
-        final double v2 = leftY+leftX - rightX;
-        final double v3 = leftY+leftX + rightX;
-        final double v4 = leftY-leftX - rightX;
-            
-        leftFront.setPower(v3);
-        rightFront.setPower(v4);
-        leftBack.setPower(v1);
-        rightBack.setPower(v2);
     }
 // Front, Back, rightstrafe, leftstrafe
     public void holonomic(double Speed, double Turn, double Strafe, double MAX_SPEED) {

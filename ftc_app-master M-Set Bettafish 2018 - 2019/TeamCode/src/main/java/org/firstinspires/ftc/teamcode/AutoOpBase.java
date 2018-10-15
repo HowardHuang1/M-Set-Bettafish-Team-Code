@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.*;
 @Autonomous(name="duehoang")
 public class AutoOpBase extends LinearOpMode{
 	public void runOpMode() {
-		while (true) {
+		while (opModeIsActive()) {
 			double leftX = 0;
 			double leftY = 1;
 			double rightX = 0;

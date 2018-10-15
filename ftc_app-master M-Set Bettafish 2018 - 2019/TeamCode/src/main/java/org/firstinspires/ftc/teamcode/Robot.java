@@ -13,10 +13,10 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Robot{
 
-    public DcMotor leftFrontMotor;
-    public DcMotor rightFrontMotor;
-    public DcMotor leftBackMotor;
-    public DcMotor rightBackMotor;
+    public DcMotor leftFront;
+    public DcMotor rightFront;
+    public DcMotor leftBack;
+    public DcMotor rightBack;
     public DcMotor intake; // constantly runs
     public Servo intakeArm;
 
@@ -32,10 +32,10 @@ public class Robot{
         this.hardwareMap = hardwareMap;
 
         // define routes in Hardware Map
-        leftFrontMotor = hardwareMap.get(DcMotor.class, "left_Front_Motor");
-        rightFrontMotor = hardwareMap.get(DcMotor.class, "right_Front_Motor");
-        leftBackMotor = hardwareMap.get(DcMotor.class, "left_Back_Motor");
-        rightBackMotor = hardwareMap.get(DcMotor.class, "right_Back_Motor");
+        leftFront = hardwareMap.get(DcMotor.class, "lf");
+        rightFront = hardwareMap.get(DcMotor.class, "rf");
+        leftBack = hardwareMap.get(DcMotor.class, "lf");
+        rightBack = hardwareMap.get(DcMotor.class, "rb");
 
 
 
@@ -46,11 +46,11 @@ public class Robot{
         telemetry.update();
 
         // reset encoder values
-        leftFrontMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        rightFrontMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        leftBackMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightBackMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // initiate "getCurrentPosition"
 
@@ -58,8 +58,8 @@ public class Robot{
 
     // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0","Starting at %7d :%7d",
-                leftFrontMotor.getCurrentPosition(),
-                rightFrontMotor.getCurrentPosition());
+                leftFront.getCurrentPosition(),
+                rightFront.getCurrentPosition());
         telemetry.update();
 
     // NeverRest Encoders

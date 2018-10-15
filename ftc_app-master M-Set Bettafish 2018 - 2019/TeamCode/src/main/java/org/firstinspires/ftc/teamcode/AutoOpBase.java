@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.*;
  * Created by howardhuang on 10/6/18.
  */
 
-@Autonomous(name="duehoang")
+@Autonomous(name="autonomous")
 public class AutoOpBase extends LinearOpMode {
 	public void runOpMode() throws InterruptedException {
 		Robot r = new Robot();

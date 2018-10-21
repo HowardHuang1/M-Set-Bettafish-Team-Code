@@ -16,6 +16,9 @@ public class SimpleLiftTest extends LinearOpMode {
             // lift goes other way if you press b
             else if(gamepad1.b)
                 r.winch.setPower(-1);
+            // lift stops moving if you press nothing
+            else
+                r.winch.setPower(0);
         }
     }
 }

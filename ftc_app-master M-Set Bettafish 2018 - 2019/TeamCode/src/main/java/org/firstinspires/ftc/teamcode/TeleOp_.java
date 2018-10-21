@@ -9,7 +9,7 @@ import static java.lang.Math.abs;
  * Created by howardhuang on 10/8/18.
  */
 
-@TeleOp(name="teleop")
+@TeleOp(name="teleop    ")
 
 public class TeleOp_ extends LinearOpMode {
     Robot bot = new Robot();

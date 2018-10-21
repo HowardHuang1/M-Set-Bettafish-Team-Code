@@ -9,15 +9,15 @@ import static java.lang.Math.abs;
  * Created by howardhuang on 10/8/18.
  */
 
-@TeleOp(name="teleop    ")
+@TeleOp(name="teleop")
 
 public class TeleOp_ extends LinearOpMode {
-    Robot bot = new Robot();
+    Robot r = new Robot();
 
     public void runOpMode() throws InterruptedException {
         // Initialize the drive system variables.
         // The init() method of the hardware class does all the work here
-        bot.init(hardwareMap, telemetry);
+        r.init(hardwareMap, telemetry);
         telemetry.update();
 
         waitForStart();
@@ -45,13 +45,13 @@ public class TeleOp_ extends LinearOpMode {
         double Magnitude = abs(Speed) + abs(Turn) + abs(Strafe);
         Magnitude = (Magnitude > 1) ? Magnitude : 1; //Set scaling to keep -1,+1 range
 
-        bot.leftFront.setPower(scaleInput(Speed) + scaleInput(Turn) - scaleInput(Strafe));
-        if (bot.leftBack != null) {
-            bot.leftBack.setPower(scaleInput(Speed) + scaleInput(Turn) + scaleInput(Strafe));
+        r.leftFront.setPower(scaleInput(Speed) + scaleInput(Turn) - scaleInput(Strafe));
+        if (r.leftBack != null) {
+            r.leftBack.setPower(scaleInput(Speed) + scaleInput(Turn) + scaleInput(Strafe));
         }
-        bot.rightFront.setPower(scaleInput(Speed) - scaleInput(Turn) + scaleInput(Strafe));
-        if (bot.rightBack != null) {
-            bot.rightBack.setPower(scaleInput(Speed) - scaleInput(Turn) - scaleInput(Strafe));
+        r.rightFront.setPower(scaleInput(Speed) - scaleInput(Turn) + scaleInput(Strafe));
+        if (r.rightBack != null) {
+            r.rightBack.setPower(scaleInput(Speed) - scaleInput(Turn) - scaleInput(Strafe));
         }
     }
     

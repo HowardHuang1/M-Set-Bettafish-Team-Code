@@ -17,6 +17,7 @@ public class Robot{
     public DcMotor rightFront;
     public DcMotor leftBack;
     public DcMotor rightBack;
+    public DcMotor winch;
     public DcMotor intake; // constantly runs
     public Servo intakeArm;
 

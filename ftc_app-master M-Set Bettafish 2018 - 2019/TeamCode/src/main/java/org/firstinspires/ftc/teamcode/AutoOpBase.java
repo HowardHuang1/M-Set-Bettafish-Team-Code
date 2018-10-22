@@ -23,13 +23,14 @@ import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 public class AutoOpBase extends LinearOpMode {
 	
 	Robot r = new Robot();
-	
+
 	public void runOpMode() throws InterruptedException {
 		SensorMRGyro gyro = new SensorMRGyro();
 		Drive dt = new Drive(r);
 		dt.master(0.0, 1.0, 0.0);
 		
 		// THIS PART WILL BE REPLACED WITH NUMBER OF ROTATIONS
+		// test from Chris
 		try {
 			Thread.currentThread().sleep(1000);
 		} catch (InterruptedException e) {}

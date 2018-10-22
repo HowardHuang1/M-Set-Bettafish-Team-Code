@@ -30,6 +30,7 @@ public class AutoOpBase extends LinearOpMode {
 		dt.master(0.0, 1.0, 0.0);
 		
 		// THIS PART WILL BE REPLACED WITH NUMBER OF ROTATIONS
+		// test
 		try {
 			Thread.currentThread().sleep(1000);
 		} catch (InterruptedException e) {}

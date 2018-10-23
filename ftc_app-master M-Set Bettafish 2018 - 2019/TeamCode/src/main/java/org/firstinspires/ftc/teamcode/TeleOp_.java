@@ -26,7 +26,7 @@ public class TeleOp_ extends LinearOpMode {
 
 		while (opModeIsActive()) {
 			MecanumDrive();
-			l.detectBP();
+			// l.detectBP();
 		}
 		// stopDriving();
 	}

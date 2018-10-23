@@ -29,13 +29,6 @@ public class AutoOpBase extends LinearOpMode {
 		Drive dt = new Drive(r);
 		dt.master(0.0, 1.0, 0.0);
 		
-		// THIS PART WILL BE REPLACED WITH NUMBER OF ROTATIONS
-		// test from Chris
-		try {
-			Thread.currentThread().sleep(1000);
-		} catch (InterruptedException e) {}
-		// ABOVE PART WILL BE REPLACED WIth NUMBER OF ROTATIONS
-		
 		dt.master(0.0, 0.0, 0.0);
 		while (opModeIsActive()) {
 			r.init(hardwareMap, telemetry);

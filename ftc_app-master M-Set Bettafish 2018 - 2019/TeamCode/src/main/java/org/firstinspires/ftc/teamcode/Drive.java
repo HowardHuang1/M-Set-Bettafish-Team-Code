@@ -6,7 +6,7 @@ public class Drive {
 	public Drive(Robot r) {
 		this.r=r;
 	}
-	
+
 	// master program which drives the drive train
 	public void master(double leftX, double leftY, double rightX) {
 		

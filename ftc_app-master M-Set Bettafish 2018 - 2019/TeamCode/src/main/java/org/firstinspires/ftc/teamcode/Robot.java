@@ -35,7 +35,7 @@ public class Robot {
 		// define routes in Hardware Map
 		leftFront = hardwareMap.get(DcMotor.class, "lf");
 		rightFront = hardwareMap.get(DcMotor.class, "rf");
-		leftBack = hardwareMap.get(DcMotor.class, "lf");
+		leftBack = hardwareMap.get(DcMotor.class, "lb");
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
 
 

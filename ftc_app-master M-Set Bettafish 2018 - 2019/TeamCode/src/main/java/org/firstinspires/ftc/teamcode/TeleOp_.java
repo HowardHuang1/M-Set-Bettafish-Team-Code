@@ -14,18 +14,20 @@ import static java.lang.Math.abs;
 public class TeleOp_ extends LinearOpMode {
 	Robot r = new Robot();
 	Lift l;
+	Drive dr;
 
 	public void runOpMode() throws InterruptedException {
 		// Initialize the drive system variables.
 		// The init() method of the hardware class does all the work here
 		r.init(hardwareMap, telemetry);
 		l = new Lift(hardwareMap, telemetry, gamepad1, gamepad2);
+		dr = new Drive(r);
 		telemetry.update();
 
-		waitForStart();
+		waitForStart();s
 
 		while (opModeIsActive()) {
-			MecanumDrive();
+			dr.master(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
 			// l.detectBP();
 		}
 		// stopDriving();

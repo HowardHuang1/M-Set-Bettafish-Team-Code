@@ -7,10 +7,14 @@ Drive Train - done
 Color Sensor - not started
 
 Team Marker - dropoff needs to be implemented
+
+Unloading from lander - tentative code released
 ## Teleop
 Drive Train - done
 
 Lift - finished a simple code
+
+Intake - done
 ## Robot class
 Hardware Map - done
 

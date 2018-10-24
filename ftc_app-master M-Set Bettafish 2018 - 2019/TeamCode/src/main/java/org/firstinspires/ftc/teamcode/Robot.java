@@ -19,7 +19,7 @@ public class Robot {
 	public DcMotor rightBack;
 	public DcMotor winch;
 	public DcMotor intake; // constantly runs
-	public Servo intakeArm;
+	public DcMotor intakeArm;
 
 	static final double AUTO_DRIVE_SPEED_SLOW = 0.25;
 	static final double AUTO_DRIVE_SPEED_NORMAL = 0.5;

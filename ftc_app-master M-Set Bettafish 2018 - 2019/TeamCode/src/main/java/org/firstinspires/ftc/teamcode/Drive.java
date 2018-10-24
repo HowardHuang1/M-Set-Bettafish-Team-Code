@@ -31,8 +31,8 @@ public class Drive {
 			index = -index;
 		}
 		// index cannot exceed size of array minus 1.
-		if (index > 16) {
-			index = 16;
+		if (index > scaleArray.length) {
+			index = scaleArray.length;
 		}
 		// get value from the array.
 		double dScale = 0.0;

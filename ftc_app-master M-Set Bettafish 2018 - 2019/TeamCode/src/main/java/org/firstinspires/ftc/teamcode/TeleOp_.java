@@ -24,7 +24,7 @@ public class TeleOp_ extends LinearOpMode {
 		dr = new Drive(r);
 		telemetry.update();
 
-		waitForStart();s
+		waitForStart();
 
 		while (opModeIsActive()) {
 			dr.master(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
@@ -33,6 +33,7 @@ public class TeleOp_ extends LinearOpMode {
 		// stopDriving();
 	}
 
+	// OBSOLETE FROM HERE BELOW
 	// pre-coded drive Speeds
 	// Mecanum power is determined by Speed, Turn, and Strafe
 	public void MecanumDrive() {
@@ -70,8 +71,8 @@ public class TeleOp_ extends LinearOpMode {
 			index = -index;
 		}
 		// index cannot exceed size of array minus 1.
-		if (index > 16) {
-			index = 16;
+		if (index > scaleArray.length) {
+			index = scaleArray.length;
 		}
 		// get value from the array.
 		double dScale = 0.0;

@@ -39,6 +39,9 @@ public class Robot {
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
 		winch = hardwareMap.get(DcMotor.class, "wi");
 
+		winch = hardwareMap.get(DcMotor.class, "wi");
+		intake = hardwareMap.get(DcMotor.class, "is");
+		intakeArm = hardwareMap.get(DcMotor.class, "ia");
 
 
 	/* Initialize Telemetry */

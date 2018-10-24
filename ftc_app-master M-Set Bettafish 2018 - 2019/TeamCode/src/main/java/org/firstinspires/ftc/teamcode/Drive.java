@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class Drive {
 	Robot r;
 	
@@ -15,10 +18,10 @@ public class Drive {
 		final double v3 = leftY+leftX + rightX;
 		final double v4 = leftY-leftX - rightX;
 		
-		r.leftFront.setPower(scaleInput(v3));
-		r.rightFront.setPower(scaleInput(v4));
-		r.leftBack.setPower(scaleInput(v1));
-		r.rightBack.setPower(scaleInput(v2));
+		r.leftFront.setPower(-v3); // 3
+		r.rightFront.setPower(-v4); // -4
+		r.leftBack.setPower(v3); // 1
+		r.rightBack.setPower(-v4); // -2
 		
 	}
 	double scaleInput(double dVal)  {

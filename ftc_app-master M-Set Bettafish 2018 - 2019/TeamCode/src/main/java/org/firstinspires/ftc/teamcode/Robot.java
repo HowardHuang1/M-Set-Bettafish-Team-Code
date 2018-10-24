@@ -37,7 +37,6 @@ public class Robot {
 		rightFront = hardwareMap.get(DcMotor.class, "rf");
 		leftBack = hardwareMap.get(DcMotor.class, "lb");
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
-		winch = hardwareMap.get(DcMotor.class, "wi");
 
 		winch = hardwareMap.get(DcMotor.class, "wi");
 		intake = hardwareMap.get(DcMotor.class, "is");

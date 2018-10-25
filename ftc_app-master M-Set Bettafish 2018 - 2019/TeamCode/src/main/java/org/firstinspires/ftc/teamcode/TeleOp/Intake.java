@@ -1,9 +1,8 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 public class Intake {
-<<<<<<< HEAD
     org.firstinspires.ftc.teamcode.Robot r = new org.firstinspires.ftc.teamcode.Robot();
-=======
+
     Robot r = new Robot();
     Gamepad gp1, gp2;
 
@@ -16,7 +15,6 @@ public class Intake {
         this.gp1 = gp1;
         this.gp2 = gp2;
     }
->>>>>>> 2a21957c5a4d28b92a1743057f436625f99d7cb0
 
     public void spin() {
 

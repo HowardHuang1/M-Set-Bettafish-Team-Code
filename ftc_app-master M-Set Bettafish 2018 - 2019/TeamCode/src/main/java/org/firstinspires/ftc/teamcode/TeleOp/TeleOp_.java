@@ -32,18 +32,52 @@ public class TeleOp_ extends LinearOpMode {
 			telemetry.addData("y", gamepad1.left_stick_y + "");
 			telemetry.update();
 
-			MecanumDrive();
-			forward();
+			if(gamepad1.right_trigger != 0) {
+				forward();
+			}
+			if(gamepad1.left_trigger != 0) {
+				backward();
+			}
+			if(gamepad1.right_bumper) {
+				turnRight();
+			}
+			if(gamepad1.left_bumper) {
+				turnLeft();
+			}
 			idle();
 		}
-		r.winch.setPower(0);
+		rest();
 	}
 
 	public void forward() {
-		r.rightBack.setPower(gamepad1.left_stick_y);
-		r.rightFront.setPower(gamepad1.left_stick_y);
-		r.leftBack.setPower(gamepad1.left_stick_y);
-		r.leftFront.setPower(gamepad1.left_stick_y);
+		r.rightBack.setPower(1);
+		r.rightFront.setPower(1);
+		r.leftBack.setPower(1);
+		r.leftFront.setPower(1);
+	}
+	public void backward() {
+		r.rightBack.setPower(-1);
+		r.rightFront.setPower(-1);
+		r.leftBack.setPower(-1);
+		r.leftFront.setPower(-1);
+	}
+	public void turnRight() {
+		r.rightBack.setPower(-1);
+		r.rightFront.setPower(-1);
+		r.leftBack.setPower(1);
+		r.leftFront.setPower(1);
+	}
+	public void turnLeft() {
+		r.rightBack.setPower(1);
+		r.rightFront.setPower(1);
+		r.leftBack.setPower(-1);
+		r.leftFront.setPower(-1);
+	}
+	public void rest() {
+		r.rightBack.setPower(0);
+		r.rightFront.setPower(0);
+		r.leftBack.setPower(0);
+		r.leftFront.setPower(0);
 	}
 	// OBSOLETE FROM HERE BELOW
 	// pre-coded drive Speeds

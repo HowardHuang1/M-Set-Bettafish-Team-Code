@@ -23,14 +23,21 @@ public class TeleOp_ extends LinearOpMode {
 		l = new Lift(hardwareMap, telemetry, gamepad1, gamepad2);
 		dr = new Drive(r);
 		telemetry.update();
-
+		double speed = 1;
 		waitForStart();
 
 		while (opModeIsActive()) {
-			dr.master(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
-			// l.detectBP();
+			telemetry.addData("Power: ", speed);
+			telemetry.update();
+			if(gamepad1.y)
+				r.winch.setPower(speed);
+			else if(gamepad1.a)
+				r.winch.setPower(-speed);
+			else
+				r.winch.setPower(0);
+			idle();
 		}
-		// stopDriving();
+		r.winch.setPower(0);
 	}
 
 	// OBSOLETE FROM HERE BELOW

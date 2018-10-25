@@ -29,6 +29,8 @@ public class LiftTest extends LinearOpMode {
 		while (opModeIsActive()) {
 			r.winch.setPower(speed);
 			sleep(10000);
+			r.winch.setPower(0);
+			sleep(1000);
 			r.winch.setPower(-speed);
 			sleep(3000);
 			speed=0;

@@ -15,6 +15,7 @@ public class TeleOp_ extends LinearOpMode {
 	Robot r = new Robot();
 	Lift lift;
 	Drive drive;
+	Intake intake;
 
 	public void runOpMode() throws InterruptedException {
 		// Initialize the drive system variables.
@@ -22,25 +23,11 @@ public class TeleOp_ extends LinearOpMode {
 		r.init(hardwareMap, telemetry);
 		lift = new Lift(r, gamepad1, gamepad2);
 		drive = new Drive(r);
+		intake = new Intake(r);
 		telemetry.update();
 		double speed = 1;
 		waitForStart();
 
-		while (opModeIsActive()) {
-			// Joystick value test
-			telemetry.addData("x", gamepad1.left_stick_x + "");
-			telemetry.addData("y", gamepad1.left_stick_y + "");
-			telemetry.update();
-			if(gamepad1.y)
-				r.winch.setPower(speed);
-			else if(gamepad1.a)
-				r.winch.setPower(-speed);
-			else
-				r.winch.setPower(0);
-			idle();
-		}
-		r.winch.setPower(0);
-	}
 
 	// OBSOLETE FROM HERE BELOW
 	// pre-coded drive Speeds

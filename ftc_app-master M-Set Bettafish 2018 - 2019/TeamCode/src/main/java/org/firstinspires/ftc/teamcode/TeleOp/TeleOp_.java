@@ -32,18 +32,30 @@ public class TeleOp_ extends LinearOpMode {
 			telemetry.addData("y", gamepad1.left_stick_y + "");
 			telemetry.update();
 
-			if(gamepad1.right_trigger != 0) {
+			if(gamepad1.right_trigger != 0)
 				forward();
-			}
-			if(gamepad1.left_trigger != 0) {
+			else
+				rest();
+			if(gamepad1.left_trigger != 0)
 				backward();
-			}
-			if(gamepad1.right_bumper) {
+			else
+				rest();
+			if(gamepad1.right_bumper)
 				turnRight();
-			}
-			if(gamepad1.left_bumper) {
+			else
+				rest();
+			if(gamepad1.left_bumper)
 				turnLeft();
-			}
+			else
+				rest();
+			if(gamepad2.y)
+				r.winch.setPower(0.4);
+			else
+				r.winch.setPower(0);
+			if(gamepad2.a)
+				r.winch.setPower(-0.4);
+			else
+				r.winch.setPower(0);
 			idle();
 		}
 		rest();
@@ -62,16 +74,16 @@ public class TeleOp_ extends LinearOpMode {
 		r.leftFront.setPower(-1);
 	}
 	public void turnRight() {
-		r.rightBack.setPower(-1);
-		r.rightFront.setPower(-1);
-		r.leftBack.setPower(1);
-		r.leftFront.setPower(1);
-	}
-	public void turnLeft() {
 		r.rightBack.setPower(1);
 		r.rightFront.setPower(1);
 		r.leftBack.setPower(-1);
 		r.leftFront.setPower(-1);
+	}
+	public void turnLeft() {
+		r.rightBack.setPower(-1);
+		r.rightFront.setPower(-1);
+		r.leftBack.setPower(1);
+		r.leftFront.setPower(1);
 	}
 	public void rest() {
 		r.rightBack.setPower(0);

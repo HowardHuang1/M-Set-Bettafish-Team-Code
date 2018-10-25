@@ -39,9 +39,9 @@ public class Robot {
 		leftBack = hardwareMap.get(DcMotor.class, "lb");
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
 
-		winch = hardwareMap.get(DcMotor.class, "winch");
-		intake = hardwareMap.get(DcMotor.class, "intake");
-		intakeArm = hardwareMap.get(DcMotor.class, "intakeArm");
+		winch = hardwareMap.get(DcMotor.class, "wi");
+		intake = hardwareMap.get(DcMotor.class, "is");
+		intakeArm = hardwareMap.get(DcMotor.class, "ia");
 
 
 	/* Initialize Telemetry */
@@ -55,7 +55,6 @@ public class Robot {
 		//rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 		leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 		rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
 		leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 		rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 

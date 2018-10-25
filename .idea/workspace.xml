@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e43d980-1e71-48e2-8070-0aba2513dc93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/M-Set-Bettafish-Team-Code.iml" afterPath="$PROJECT_DIR$/.idea/M-Set-Bettafish-Team-Code.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Intake.java" afterPath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Intake.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java" afterPath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java" afterPath="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,21 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoOpBase.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AutoOpBase.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeleOp_.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp_.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            <state relative-caret-position="337">
+              <caret line="79" column="20" lean-forward="true" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -62,18 +50,18 @@
       <file leaf-file-name="Robot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="795">
+              <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Intake.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Intake.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Intake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+            <state relative-caret-position="105">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -358,8 +346,9 @@
       <list>
         <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Lift.java" />
         <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp_.java" />
-        <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java" />
         <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Intake.java" />
+        <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java" />
+        <option value="$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java" />
       </list>
     </option>
   </component>
@@ -878,7 +867,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540506627702" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540507528276" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -926,7 +915,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540506627702" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1540507528276" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1174,34 +1163,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Lift.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Lift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1216,8 +1181,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Intake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/Lift.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Autonomous/AutoOpBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="79" column="20" lean-forward="true" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
           <folding />
         </state>
       </provider>

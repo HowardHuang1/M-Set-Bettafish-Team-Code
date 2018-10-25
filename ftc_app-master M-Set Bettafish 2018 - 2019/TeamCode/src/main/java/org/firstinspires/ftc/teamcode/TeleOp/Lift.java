@@ -22,11 +22,12 @@ public class Lift {
 
 	// detects button press and adjusts lift motor
 	public void detectBP() {
+		//reset power
 		r.winch.setPower(0);
-		// lift goes one way if you press a
+		// lift ascends
 		if(gp1.a)
 			r.winch.setPower(1);
-		// lift goes other way if you press b
+		// lift descends
 		else if(gp1.b)
 			r.winch.setPower(-1);
 		// lift stops moving if you press nothing

@@ -40,35 +40,43 @@ public class AutoOpBase extends LinearOpMode {
 		}
 		rest();
 	}
+	// turn in place
 	public void MecanumDriveRotateLeft(double power, int time) {
 		r.leftFront.setPower(-power);
-		r.rightBack.setPower(-power/2);
-		r.rightFront.setPower(power);
+		// account for weight difference
 		r.leftBack.setPower(-power/2);
+		r.rightFront.setPower(power);
+		// account for weight difference
+		r.rightBack.setPower(power/2);
 		sleep(time);
 		rest();
 	}
+	// turn in place
 	public void MecanumDriveRotateRight(double power, int time) {
 		r.leftFront.setPower(power);
-		r.rightBack.setPower(power/2);
-		r.rightFront.setPower(-power);
+		// account for weight difference in the back
 		r.leftBack.setPower(power/2);
+		r.rightFront.setPower(-power);
+		r.rightBack.setPower(-power/2);
+		// acount for weight difference in the back
 		sleep(time);
 		rest();
 	}
 	public void MecanumStrafeLeft(double power, int time) {
+		// wheels move in opposite directions so that forward/backward forces cancel out
 		r.leftFront.setPower(power);
-		r.rightBack.setPower(power);
-		r.rightFront.setPower(-power);
 		r.leftBack.setPower(-power);
+		r.rightFront.setPower(-power);
+		r.rightBack.setPower(power);
 		sleep(time);
 		rest();
 	}
 	public void MecanumStrafeRight(double power, int time) {
+		// wheels move in opposite directions so that forward/backward forces cancel out
 		r.leftFront.setPower(-power);
+		r.leftBack.setPower(power);
+		r.rightFront.setPower(power);
 		r.rightBack.setPower(-power);
-		r.leftFront.setPower(power);
-		r.leftFront.setPower(power);
 		sleep(time);
 		rest();
 	}

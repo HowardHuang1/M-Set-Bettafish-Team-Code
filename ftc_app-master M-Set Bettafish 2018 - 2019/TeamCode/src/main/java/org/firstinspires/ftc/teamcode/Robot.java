@@ -21,6 +21,7 @@ public class Robot {
 	public DcMotor intake; // constantly runs
 	public DcMotor intakeArm;
 
+	// preset speeds
 	static final double AUTO_DRIVE_SPEED_SLOW = 0.25;
 	static final double AUTO_DRIVE_SPEED_NORMAL = 0.5;
 	static final double AUTO_DRIVE_SPEED_FAST = 1.0;

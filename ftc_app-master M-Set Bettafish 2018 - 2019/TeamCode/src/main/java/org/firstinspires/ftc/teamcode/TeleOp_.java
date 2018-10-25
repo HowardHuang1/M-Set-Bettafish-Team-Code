@@ -20,7 +20,7 @@ public class TeleOp_ extends LinearOpMode {
 		// Initialize the drive system variables.
 		// The init() method of the hardware class does all the work here
 		r.init(hardwareMap, telemetry);
-		l = new Lift(hardwareMap, telemetry, gamepad1, gamepad2);
+		l = new Lift(r, gamepad1, gamepad2);
 		dr = new Drive(r);
 		telemetry.update();
 		double speed = 1;

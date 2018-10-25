@@ -2,6 +2,17 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 
 public class Intake {
     Robot r = new Robot();
+    Gamepad gp1, gp2;
+
+    public Lift(HardwareMap hm, Telemetry tm, Gamepad gp1, Gamepad gp2) {
+        try {
+            r.init(hm, tm); // used try/catch to please android studio :)
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.gp1 = gp1;
+        this.gp2 = gp2;
+    }
 
     public void spin() {
 

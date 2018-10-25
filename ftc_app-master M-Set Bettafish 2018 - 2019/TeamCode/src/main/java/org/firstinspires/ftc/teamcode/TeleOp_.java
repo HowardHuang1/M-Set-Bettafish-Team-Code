@@ -27,7 +27,9 @@ public class TeleOp_ extends LinearOpMode {
 		waitForStart();
 
 		while (opModeIsActive()) {
-			telemetry.addData("Power: ", speed);
+			// Joystick value test
+			telemetry.addData("x", gamepad1.left_stick_x + "");
+			telemetry.addData("y", gamepad1.left_stick_y + "");
 			telemetry.update();
 			if(gamepad1.y)
 				r.winch.setPower(speed);

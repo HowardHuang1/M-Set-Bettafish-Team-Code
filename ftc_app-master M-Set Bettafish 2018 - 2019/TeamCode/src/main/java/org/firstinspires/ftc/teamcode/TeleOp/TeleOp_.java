@@ -1,10 +1,8 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
 
 import org.firstinspires.ftc.teamcode.Drive;
-import org.firstinspires.ftc.teamcode.Lift;
 import org.firstinspires.ftc.teamcode.Robot;
 
 import static java.lang.Math.abs;
@@ -17,14 +15,12 @@ import static java.lang.Math.abs;
 
 public class TeleOp_ extends LinearOpMode {
 	Robot r = new Robot();
-	org.firstinspires.ftc.teamcode.Lift l;
 	Drive dr;
 
 	public void runOpMode() throws InterruptedException {
 		// Initialize the drive system variables.
 		// The init() method of the hardware class does all the work here
 		r.init(hardwareMap, telemetry);
-		l = new Lift(r, gamepad1, gamepad2);
 		dr = new Drive(r);
 		telemetry.update();
 		double speed = 1;
@@ -35,7 +31,7 @@ public class TeleOp_ extends LinearOpMode {
 			telemetry.addData("x", gamepad1.left_stick_x + "");
 			telemetry.addData("y", gamepad1.left_stick_y + "");
 			telemetry.update();
-			turn();
+
 			MecanumDrive();
 			forward();
 			idle();

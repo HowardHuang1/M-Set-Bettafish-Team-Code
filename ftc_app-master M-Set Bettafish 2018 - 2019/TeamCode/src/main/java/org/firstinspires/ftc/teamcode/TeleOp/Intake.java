@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 public class Intake {
-    Robot r = new Robot();
+    org.firstinspires.ftc.teamcode.Robot r = new org.firstinspires.ftc.teamcode.Robot();
 
     public void spin() {
 

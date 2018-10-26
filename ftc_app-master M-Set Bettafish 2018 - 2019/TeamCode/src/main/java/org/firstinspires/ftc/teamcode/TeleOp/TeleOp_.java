@@ -8,11 +8,10 @@ import org.firstinspires.ftc.teamcode.Robot;
 import static java.lang.Math.abs;
 
 /**
- * Created by howardhuang on 10/8/18.
+ * Created by tejbade on 10/8/18.
  */
 
 @TeleOp(name="teleop")
-
 public class TeleOp_ extends LinearOpMode {
 	Robot r = new Robot();
 	Drive dr;
@@ -32,22 +31,18 @@ public class TeleOp_ extends LinearOpMode {
 			telemetry.addData("y", gamepad1.left_stick_y + "");
 			telemetry.update();
 
-			if(gamepad1.right_trigger != 0)
+			if(gamepad1.dpad_up)
 				forward();
-			else
-				rest();
-			if(gamepad1.left_trigger != 0)
+			else if(gamepad1.dpad_down)
 				backward();
-			else
-				rest();
-			if(gamepad1.right_bumper)
+			else if(gamepad1.right_bumper)
 				turnRight();
-			else
-				rest();
-			if(gamepad1.left_bumper)
+			else if(gamepad1.left_bumper)
 				turnLeft();
-			else
-				rest();
+			else if(gamepad1.right_bumper)
+				turnRight();
+			else if(gamepad1.left_bumper)
+				turnLeft();
 			if(gamepad2.y)
 				r.winch.setPower(0.4);
 			else
@@ -62,28 +57,46 @@ public class TeleOp_ extends LinearOpMode {
 	}
 
 	public void forward() {
-		r.rightBack.setPower(1);
+		r.rightBack.setPower(-1);
 		r.rightFront.setPower(1);
 		r.leftBack.setPower(1);
 		r.leftFront.setPower(1);
 	}
 	public void backward() {
-		r.rightBack.setPower(-1);
+		r.rightBack.setPower(1);
 		r.rightFront.setPower(-1);
 		r.leftBack.setPower(-1);
 		r.leftFront.setPower(-1);
 	}
 	public void turnRight() {
-		r.rightBack.setPower(1);
+		r.rightBack.setPower(-1);
 		r.rightFront.setPower(1);
 		r.leftBack.setPower(-1);
 		r.leftFront.setPower(-1);
 	}
 	public void turnLeft() {
-		r.rightBack.setPower(-1);
+		r.rightBack.setPower(1);
 		r.rightFront.setPower(-1);
 		r.leftBack.setPower(1);
 		r.leftFront.setPower(1);
+	}
+	public void MecanumStrafeLeft(double power, int time) {
+		// wheels move in opposite directions so that forward/backward forces cancel out
+		r.leftFront.setPower(power);
+		r.leftBack.setPower(-power);
+		r.rightFront.setPower(-power);
+		r.rightBack.setPower(power);
+		sleep(time);
+		rest();
+	}
+	public void MecanumStrafeRight(double power, int time) {
+		// wheels move in opposite directions so that forward/backward forces cancel out
+		r.leftFront.setPower(-power);
+		r.leftBack.setPower(power);
+		r.rightFront.setPower(power);
+		r.rightBack.setPower(-power);
+		sleep(time);
+		rest();
 	}
 	public void rest() {
 		r.rightBack.setPower(0);

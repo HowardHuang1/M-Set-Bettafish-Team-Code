@@ -27,82 +27,68 @@ public class AutoOpBase extends LinearOpMode {
 
 	public void runOpMode() throws InterruptedException {
 		r.init(hardwareMap, telemetry);
-		double speed = 0.8;
-		double ppower = 1;
-		int time = 1000;
+		float driveSpeed = (float) 0.8;
+		float winchSpeed = 1;
+		int time = 500;
 		while (opModeIsActive()) {
-			r.winch.setPower(-speed);
+			r.winch.setPower(-winchSpeed);
 			sleep(3400);
-			MecanumStrafeLeft(ppower, time);
-			speed = 0;
-			time = 0;
+			winchSpeed = 0;
+			mecanumStrafeLeft(driveSpeed, time);
+			driveSpeed = 0;
+			rest();
 			idle();
 		}
 		rest();
 	}
 
-	public void MecanumDriveForward(double power, int time) {
-		r.leftFront.setPower(power);
-		// account for weight difference
-		r.leftBack.setPower(power/2);
+	public void forward(float power, int time) {
+		r.rightBack.setPower(-power);
 		r.rightFront.setPower(power);
-		// account for weight difference
-		r.rightBack.setPower(power/2);
-	}
-	public void MecanumDriveBackward(double power, int time) {
-		r.leftFront.setPower(-power);
-		// account for weight difference
-		r.leftBack.setPower(-power/2);
-		r.rightFront.setPower(-power);
-		// account for weight difference
-		r.rightBack.setPower(-power/2);
-	}
-	// turn in place
-	public void MecanumDriveRotateLeft(double power, int time) {
-		r.leftFront.setPower(-power);
-		// account for weight difference
-		r.leftBack.setPower(-power/2);
-		r.rightFront.setPower(power);
-		// account for weight difference
-		r.rightBack.setPower(power/2);
-		sleep(time);
-		rest();
-	}
-	// turn in place
-	public void MecanumDriveRotateRight(double power, int time) {
+		r.leftBack.setPower(power);
 		r.leftFront.setPower(power);
-		// account for weight difference in the back
-		r.leftBack.setPower(power/2);
-		r.rightFront.setPower(-power);
-		r.rightBack.setPower(-power/2);
-		// acount for weight difference in the back
 		sleep(time);
-		rest();
 	}
-	public void MecanumStrafeLeft(double power, int time) {
-		// wheels move in opposite directions so that forward/backward forces cancel out
-		r.leftFront.setPower(power);
-		r.leftBack.setPower(-power);
-		r.rightFront.setPower(-power);
+	public void backward(float power, int time) {
 		r.rightBack.setPower(power);
+		r.rightFront.setPower(-power);
+		r.leftBack.setPower(-power);
+		r.leftFront.setPower(-power);
 		sleep(time);
-		rest();
 	}
-	public void MecanumStrafeRight(double power, int time) {
-		// wheels move in opposite directions so that forward/backward forces cancel out
+	public void turnRight(float power, int time) {
+		r.rightBack.setPower(-power);
+		r.rightFront.setPower(power);
+		r.leftBack.setPower(-power);
+		r.leftFront.setPower(-power);
+		sleep(time);
+	}
+	public void turnLeft(float power, int time) {
+		r.rightBack.setPower(power);
+		r.rightFront.setPower(-power);
+		r.leftBack.setPower(power);
+		r.leftFront.setPower(power);
+		sleep(time);
+	}
+	public void mecanumStrafeLeft(float power, int time) {
 		r.leftFront.setPower(-power);
 		r.leftBack.setPower(power);
 		r.rightFront.setPower(power);
+		r.rightBack.setPower(power);
+		sleep(time);
+	}
+	public void mecanumStrafeRight(float power, int time) {
+		r.leftFront.setPower(power);
+		r.leftBack.setPower(-power);
+		r.rightFront.setPower(-power);
 		r.rightBack.setPower(-power);
 		sleep(time);
-		rest();
 	}
 	public void rest() {
-		r.leftFront.setPower(0);
 		r.rightBack.setPower(0);
-		r.leftBack.setPower(0);
 		r.rightFront.setPower(0);
-		r.winch.setPower(0);
+		r.leftBack.setPower(0);
+		r.leftFront.setPower(0);
 	}
 
 }

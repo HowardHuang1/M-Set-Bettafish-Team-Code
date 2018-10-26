@@ -39,18 +39,21 @@ public class TeleOp_ extends LinearOpMode {
 				turnRight();
 			else if(gamepad1.left_bumper)
 				turnLeft();
-			else if(gamepad1.right_bumper)
-				turnRight();
-			else if(gamepad1.left_bumper)
-				turnLeft();
+			else if(gamepad1.dpad_right)
+				mecanumStrafeRight();
+			else if(gamepad1.dpad_left)
+				mecanumStrafeLeft();
+			else
+				rest();
+
+
 			if(gamepad2.y)
 				r.winch.setPower(0.4);
-			else
-				r.winch.setPower(0);
-			if(gamepad2.a)
+			else if(gamepad2.a)
 				r.winch.setPower(-0.4);
 			else
 				r.winch.setPower(0);
+
 			idle();
 		}
 		rest();
@@ -80,23 +83,17 @@ public class TeleOp_ extends LinearOpMode {
 		r.leftBack.setPower(1);
 		r.leftFront.setPower(1);
 	}
-	public void MecanumStrafeLeft(double power, int time) {
-		// wheels move in opposite directions so that forward/backward forces cancel out
-		r.leftFront.setPower(power);
-		r.leftBack.setPower(-power);
-		r.rightFront.setPower(-power);
-		r.rightBack.setPower(power);
-		sleep(time);
-		rest();
+	public void mecanumStrafeLeft() {
+		r.leftFront.setPower(-1);
+		r.leftBack.setPower(1);
+		r.rightFront.setPower(1);
+		r.rightBack.setPower(1);
 	}
-	public void MecanumStrafeRight(double power, int time) {
-		// wheels move in opposite directions so that forward/backward forces cancel out
-		r.leftFront.setPower(-power);
-		r.leftBack.setPower(power);
-		r.rightFront.setPower(power);
-		r.rightBack.setPower(-power);
-		sleep(time);
-		rest();
+	public void mecanumStrafeRight() {
+		r.leftFront.setPower(1);
+		r.leftBack.setPower(-1);
+		r.rightFront.setPower(-1);
+		r.rightBack.setPower(-1);
 	}
 	public void rest() {
 		r.rightBack.setPower(0);
@@ -104,6 +101,9 @@ public class TeleOp_ extends LinearOpMode {
 		r.leftBack.setPower(0);
 		r.leftFront.setPower(0);
 	}
+
+
+
 	// OBSOLETE FROM HERE BELOW
 	// pre-coded drive Speeds
 	// Mecanum power is determined by Speed, Turn, and Strafe

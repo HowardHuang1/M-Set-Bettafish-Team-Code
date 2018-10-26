@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+/*package org.firstinspires.ftc.teamcode.Autonomous;
 
 @AutoOpBlueLeft(name="AutoOpBlueLeft")
 public class AutoOpBlueLeft extends AutoOpBase{
@@ -26,3 +26,4 @@ public class AutoOpBlueLeft extends AutoOpBase{
     // strafe to depot
     r.MecanumDriveStrafeLeft(ppower, 10000);
 }
+*/

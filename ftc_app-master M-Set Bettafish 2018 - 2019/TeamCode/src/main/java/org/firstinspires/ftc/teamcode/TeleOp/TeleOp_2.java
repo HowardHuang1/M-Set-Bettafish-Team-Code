@@ -12,9 +12,9 @@ import static java.lang.Math.abs;
  * Created by howardhuang on 10/8/18.
  */
 
-@TeleOp(name="teleop")
+@TeleOp(name="teleopalbert")
 
-public class TeleOp_ extends LinearOpMode {
+public class TeleOp_2 extends LinearOpMode {
 	Robot r = new Robot();
 	Lift l;
 	Drive dr;

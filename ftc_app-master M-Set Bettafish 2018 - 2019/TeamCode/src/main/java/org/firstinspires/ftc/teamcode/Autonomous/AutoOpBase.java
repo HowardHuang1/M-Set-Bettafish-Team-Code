@@ -31,7 +31,7 @@ public class AutoOpBase extends LinearOpMode {
 		float winchSpeed = 1;
 		int time = 500;
 		while (opModeIsActive()) {
-			r.winch.setPower(-winchSpeed);
+			r.winch.setPower(winchSpeed);
 			sleep(3400);
 			winchSpeed = 0;
 			mecanumStrafeLeft(driveSpeed, time);

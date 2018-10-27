@@ -20,8 +20,8 @@ public class Drive {
 		
 		r.leftFront.setPower(-v3); // 3
 		r.rightFront.setPower(-v4); // -4
-		r.leftBack.setPower(v3); // 1
-		r.rightBack.setPower(-v4); // -2
+		r.leftBack.setPower(v1); // 1
+		r.rightBack.setPower(-v2); // -2
 		
 	}
 	double scaleInput(double dVal)  {

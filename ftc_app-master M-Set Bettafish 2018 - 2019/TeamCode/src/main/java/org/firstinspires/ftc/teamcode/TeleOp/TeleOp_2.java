@@ -42,6 +42,7 @@ public class TeleOp_2 extends LinearOpMode {
 		}
 		r.winch.setPower(0);
 	}
+<<<<<<< HEAD:ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/TeleOp_2.java
 
 	// OBSOLETE FROM HERE BELOW
 	// pre-coded drive Speeds
@@ -93,6 +94,43 @@ public class TeleOp_2 extends LinearOpMode {
 		}
 		// return scaled value.
 		return dScale;
+=======
+	public void backward() {
+		r.rightBack.setPower(1);
+		r.rightFront.setPower(-1);
+		r.leftBack.setPower(-1);
+		r.leftFront.setPower(-1);
+	}
+	public void turnRight() {
+		r.rightBack.setPower(-1);
+		r.rightFront.setPower(1);
+		r.leftBack.setPower(-1);
+		r.leftFront.setPower(-1);
+	}
+	public void turnLeft() {
+		r.rightBack.setPower(1);
+		r.rightFront.setPower(-1);
+		r.leftBack.setPower(1);
+		r.leftFront.setPower(1);
+	}
+	public void mecanumStrafeLeft() {
+		r.leftFront.setPower(-1);
+		r.leftBack.setPower(1);
+		r.rightFront.setPower(1);
+		r.rightBack.setPower(1);
+	}
+	public void mecanumStrafeRight() {
+		r.leftFront.setPower(1);
+		r.leftBack.setPower(-1);
+		r.rightFront.setPower(-1);
+		r.rightBack.setPower(-1);
+	}
+	public void rest() {
+		r.rightBack.setPower(0);
+		r.rightFront.setPower(0);
+		r.leftBack.setPower(0);
+		r.leftFront.setPower(0);
+>>>>>>> d1b938c53dcdb695a2f8eef6490a0fb8267f115e:ftc_app-master M-Set Bettafish 2018 - 2019/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleOp/TeleOp_.java
 	}
 
 }

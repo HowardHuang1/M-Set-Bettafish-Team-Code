@@ -11,7 +11,7 @@ import static java.lang.Math.abs;
  * Created by tejbade on 10/8/18.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOpNew")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOp")
 public class TeleOp2 extends LinearOpMode {
     Robot r = new Robot();
     Drive dr;
@@ -65,9 +65,9 @@ public class TeleOp2 extends LinearOpMode {
             else
                 r.intake.setPower(0);
 
-            if (gamepad2.x) {
+            if (gamepad2.left_bumper) {
                 r.intakeArm.setPower(-1);
-            } else if (gamepad2.b) {
+            } else if (gamepad2.right_bumper) {
                 r.intakeArm.setPower(1);
             } else
                 r.intakeArm.setPower(0);

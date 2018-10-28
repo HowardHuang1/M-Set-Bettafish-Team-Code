@@ -7,7 +7,7 @@ lf=0, rf=1, rb=2, lb=3
 
 exphub2 -
 
-winch=0, is=1, ia=2, null=3
+winch=0, is=1, ia=2
 
 ## Autonomous
 Base - WIP, use encoders to find # of rotations

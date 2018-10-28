@@ -16,7 +16,7 @@ Drive Train - done
 
 Color Sensor - not started
 
-Team Marker - dropoff needs to be implemented
+Team Marker - dropoff implemented
 
 Unloading from lander - tentative code released
 ## Teleop

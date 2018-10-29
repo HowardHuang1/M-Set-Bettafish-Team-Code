@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+/*package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
 
@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 /**
  * Created by tejbade on 10/8/18.
  */
-
+/*
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOpOld")
 public class TeleOp extends LinearOpMode {
 	Robot r = new Robot();
@@ -155,3 +155,4 @@ public class TeleOp extends LinearOpMode {
 		return dScale;
 	}
 }
+*/

@@ -18,7 +18,8 @@ public class Robot {
 	public DcMotor leftBack;
 	public DcMotor rightBack;
 	public DcMotor winch;
-	public DcMotor intake; // constantly runs
+	public DcMotor bottomIntake; // constantly runs
+	public DcMotor topIntake;
 	public DcMotor intakeArm;
 
 	// preset speeds
@@ -40,7 +41,8 @@ public class Robot {
 		rightBack = hardwareMap.get(DcMotor.class, "rb");
 
 		winch = hardwareMap.get(DcMotor.class, "wi");
-		intake = hardwareMap.get(DcMotor.class, "is");
+		bottomIntake = hardwareMap.get(DcMotor.class, "bi");
+		topIntake = hardwareMap.get(DcMotor.class, "ti");
 		intakeArm = hardwareMap.get(DcMotor.class, "ia");
 
 

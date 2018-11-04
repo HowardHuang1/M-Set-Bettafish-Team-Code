@@ -4,6 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 public class AutoOpSample extends LinearOpMode {
     public void runOpMode() {
-        // for later change
+        // for later change purpose
     }
 }

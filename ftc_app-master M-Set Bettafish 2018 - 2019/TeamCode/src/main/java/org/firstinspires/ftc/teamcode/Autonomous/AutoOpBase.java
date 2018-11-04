@@ -22,7 +22,7 @@ import org.firstinspires.ftc.teamcode.Robot;
 
 @Autonomous(name="Autonomous")
 public class AutoOpBase extends LinearOpMode {
-	
+	// Create a new robot object.
 	Robot r = new Robot();
 
 	public void runOpMode() throws InterruptedException {

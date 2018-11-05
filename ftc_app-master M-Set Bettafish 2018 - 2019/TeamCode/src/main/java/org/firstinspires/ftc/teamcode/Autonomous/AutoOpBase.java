@@ -20,7 +20,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
 
-@Autonomous(name="Autonomous")
+@Autonomous(name="AutoOpBase")
 public class AutoOpBase extends LinearOpMode {
 	
 	Robot r = new Robot();

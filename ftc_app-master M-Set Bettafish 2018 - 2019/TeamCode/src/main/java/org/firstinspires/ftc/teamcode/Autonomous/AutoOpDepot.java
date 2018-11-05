@@ -20,7 +20,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
 
-@Autonomous(name="AutonomousDepot")
+@Autonomous(name="AutoOpDepot")
 public class AutoOpDepot extends LinearOpMode {
 
     Robot r = new Robot();
@@ -37,15 +37,15 @@ public class AutoOpDepot extends LinearOpMode {
         rest();
         sleep(300);
         backward(1, 100);
-        r.bottomIntake.setPower(1);
-        r.topIntake.setPower(1);
+        r.bottomIntakeArm.setPower(1);
+        r.topIntakeArm.setPower(1);
         sleep(500);
         forward(1, 1000);
         sleep(500);
         restMotors();
-        r.intakeArm.setPower(1);
+        r.intake.setPower(1);
         sleep(10000);
-        r.intakeArm.setPower(0);
+        r.intake.setPower(0);
         backward(1, 300);
         rest();
     }
@@ -98,9 +98,9 @@ public class AutoOpDepot extends LinearOpMode {
         r.leftBack.setPower(0);
         r.leftFront.setPower(0);
         r.winch.setPower(0);
-        r.topIntake.setPower(0);
-        r.bottomIntake.setPower(0);
-        r.intakeArm.setPower(0);
+        r.topIntakeArm.setPower(0);
+        r.bottomIntakeArm.setPower(0);
+        r.intake.setPower(0);
     }
     public void restMotors() {
         r.rightBack.setPower(0);

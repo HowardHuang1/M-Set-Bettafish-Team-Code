@@ -15,28 +15,33 @@ public class AutoOpBase {
 
 	Drive d = new Drive();
 
-	public void driveForwardDistance() {
-		if(opModeIsActive()) {
+	public void driveForwardDistance(int forwardInches) {
 			int newRightTarget = d.rightBack.getCurrentPosition() + (int) (forwardInches * d.COUNTS_PER_INCH);
-			int newLeftTarget = d.leftBack.getCurrentPosition() + (int) (forward)
-		}
+			int newLeftTarget = d.leftBack.getCurrentPosition() + (int) (forwardInches)
 	}
 	public void driveBackwardDistance() {
 
 	}
-	public void turnLeftToAngle () {
+	public void turnLeftToAngle (int measure) {
 
 	}
 	public void turnRightToAngle () {
 
 	}
 	public boolean isLeftJewelGold(){
-
-		return true;
+		d.left.enableLed(true);
+		if(d.left.red() > d.left.blue())
+			return true;
+		else
+			return false;
 	}
 
 	public boolean isRightJewelGold(){
-		return false;
+		d.right.enableLed(true);
+		if(d.right.red() > d.right.blue())
+			return true;
+		else
+			return false;
 	}
 
 }

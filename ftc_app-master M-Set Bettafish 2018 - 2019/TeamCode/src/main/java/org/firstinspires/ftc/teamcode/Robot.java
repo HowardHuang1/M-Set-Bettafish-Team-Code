@@ -1,10 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRColor;
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 /**
@@ -21,6 +24,8 @@ public class Robot {
 	public DcMotor bottomIntakeArm; // constantly runs
 	public DcMotor topIntakeArm;
 	public DcMotor intake;
+	public SensorMRGyro gyro;
+	public ColorSensor left, right;
 
 	// preset speeds
 	static final double AUTO_DRIVE_SPEED_SLOW = 0.25;

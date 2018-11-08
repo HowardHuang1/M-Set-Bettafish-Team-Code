@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 /**
- * Created by howardhuang on 10/6/18.
+ * Created by tejbade on 10/6/18.
  */
 
 public class Robot {
@@ -77,4 +77,5 @@ public class Robot {
 //    static final double COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * Math.PI);
 
 }
+
 }

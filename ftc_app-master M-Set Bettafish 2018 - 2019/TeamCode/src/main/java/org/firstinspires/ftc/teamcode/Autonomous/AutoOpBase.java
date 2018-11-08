@@ -1,94 +1,42 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
-import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
+/**
+ * Created by tejbade on 10/6/18.
+ */
 
 /**
  * Created by tejbade on 10/6/18.
  */
 
-import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
-
-/**
- * Created by tejbade on 10/6/18.
- */
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
+import org.firstinspires.ftc.teamcode.TeleOp.Drive;
 
-@Autonomous(name="AutoOpBase")
-public class AutoOpBase extends LinearOpMode {
-	// Create a new robot object.
-	Robot r = new Robot();
+public class AutoOpBase {
 
-	public void runOpMode() throws InterruptedException {
-		r.init(hardwareMap, telemetry);
-		float driveSpeed = (float) 0.8;
-		float winchSpeed = 1;
-		int time = 500;
-		while (opModeIsActive()) {
-			r.winch.setPower(winchSpeed);
-			sleep(3400);
-			winchSpeed = 0;
-			mecanumStrafeLeft(driveSpeed, time);
-			driveSpeed = 0;
-			rest();
-			idle();
+	Drive d = new Drive();
+
+	public void driveForwardDistance() {
+		if(opModeIsActive()) {
+			int newRightTarget = d.rightBack.getCurrentPosition() + (int) (forwardInches * d.COUNTS_PER_INCH);
+			int newLeftTarget = d.leftBack.getCurrentPosition() + (int) (forward)
 		}
-		rest();
+	}
+	public void driveBackwardDistance() {
+
+	}
+	public void turnLeftToAngle () {
+
+	}
+	public void turnRightToAngle () {
+
+	}
+	public boolean isLeftJewelGold(){
+
+		return true;
 	}
 
-	public void forward(float power, int time) {
-		r.rightBack.setPower(-power);
-		r.rightFront.setPower(power);
-		r.leftBack.setPower(power);
-		r.leftFront.setPower(power);
-		sleep(time);
-	}
-	public void backward(float power, int time) {
-		r.rightBack.setPower(power);
-		r.rightFront.setPower(-power);
-		r.leftBack.setPower(-power);
-		r.leftFront.setPower(-power);
-		sleep(time);
-	}
-	public void turnRight(float power, int time) {
-		r.rightBack.setPower(-power);
-		r.rightFront.setPower(power);
-		r.leftBack.setPower(-power);
-		r.leftFront.setPower(-power);
-		sleep(time);
-	}
-	public void turnLeft(float power, int time) {
-		r.rightBack.setPower(power);
-		r.rightFront.setPower(-power);
-		r.leftBack.setPower(power);
-		r.leftFront.setPower(power);
-		sleep(time);
-	}
-	public void mecanumStrafeLeft(float power, int time) {
-		r.leftFront.setPower(-power);
-		r.leftBack.setPower(power);
-		r.rightFront.setPower(power);
-		r.rightBack.setPower(power);
-		sleep(time);
-	}
-	public void mecanumStrafeRight(float power, int time) {
-		r.leftFront.setPower(power);
-		r.leftBack.setPower(-power);
-		r.rightFront.setPower(-power);
-		r.rightBack.setPower(-power);
-		sleep(time);
-	}
-	public void rest() {
-		r.rightBack.setPower(0);
-		r.rightFront.setPower(0);
-		r.leftBack.setPower(0);
-		r.leftFront.setPower(0);
+	public boolean isRightJewelGold(){
+		return false;
 	}
 
 }

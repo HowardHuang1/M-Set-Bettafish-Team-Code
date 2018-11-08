@@ -12,12 +12,12 @@ import static java.lang.Math.abs;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOp")
 public class TeleOp extends LinearOpMode {
-    Robot r = new Robot();
+    Drive d = new Drive();
     int factor = 1;
     public void runOpMode() throws InterruptedException {
         // Initialize the drive system variables.
         // The init() method of the hardware class does all the work here
-        r.init(hardwareMap, telemetry);
+        d.init(hardwareMap, telemetry);
         telemetry.update();
         waitForStart();
 
@@ -32,19 +32,19 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 1
 
             if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y > 0.1)
-                forward(Math.abs(gamepad1.left_stick_y) * factor);
+                d.forward(Math.abs(gamepad1.left_stick_y) * factor);
             else if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y < -0.1)
-                backward(Math.abs(gamepad1.left_stick_y) * factor);
+                d.backward(Math.abs(gamepad1.left_stick_y) * factor);
             else if (gamepad1.right_stick_x > 0.1)
-                turnRight(Math.abs(gamepad1.right_stick_x));
+                d.turnRight(Math.abs(gamepad1.right_stick_x));
             else if (gamepad1.right_stick_x < -0.1)
-                turnLeft(Math.abs(gamepad1.right_stick_x));
+                d.turnLeft(Math.abs(gamepad1.right_stick_x));
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x > 0.1)
-                mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * factor);
+                d.mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * factor);
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x < -0.1)
-                mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * factor);
+                d.mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * factor);
             else
-                rest();
+                d.rest();
 
             if(gamepad1.left_stick_button)
                 factor = -factor;
@@ -52,76 +52,33 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 2
 
             if (gamepad2.y) {
-                r.bottomIntakeArm.setPower(-1);
-                r.topIntakeArm.setPower(1);
+                d.bottomIntakeArm.setPower(-1);
+                d.topIntakeArm.setPower(1);
             } else if (gamepad2.a) {
-                r.bottomIntakeArm.setPower(1);
-                r.topIntakeArm.setPower(-1);
+                d.bottomIntakeArm.setPower(1);
+                d.topIntakeArm.setPower(-1);
             } else {
-                r.bottomIntakeArm.setPower(0);
-                r.topIntakeArm.setPower(0);
+                d.bottomIntakeArm.setPower(0);
+                d.topIntakeArm.setPower(0);
             }
 
             if (gamepad2.left_bumper) {
-                r.intake.setPower(-1);
+                d.intake.setPower(-1);
             } else if (gamepad2.right_bumper) {
-                r.intake.setPower(1);
+                d.intake.setPower(1);
             } else
-                r.intake.setPower(0);
+                d.intake.setPower(0);
 
             if (gamepad2.dpad_up)
-                r.winch.setPower(1);
+                d.winch.setPower(1);
             else if (gamepad2.dpad_down)
-                r.winch.setPower(-1);
+                d.winch.setPower(-1);
             else
-                r.winch.setPower(0);
+                d.winch.setPower(0);
 
             idle();
         }
-        rest();
+        d.rest();
     }
 
-
-    public void forward(double power) {
-        r.rightBack.setPower(0.8 * power);
-        r.rightFront.setPower(-power);
-        r.leftBack.setPower(-0.8* power);
-        r.leftFront.setPower(-power);
-    }
-    public void backward(double power) {
-        r.rightBack.setPower(-0.8* power);
-        r.rightFront.setPower(power);
-        r.leftBack.setPower(0.8* power);
-        r.leftFront.setPower(power);
-    }
-    public void turnRight(double power) {
-        r.rightBack.setPower(-power);
-        r.rightFront.setPower(power);
-        r.leftBack.setPower(-power);
-        r.leftFront.setPower(-power);
-    }
-    public void turnLeft(double power) {
-        r.rightBack.setPower(power);
-        r.rightFront.setPower(-power);
-        r.leftBack.setPower(power);
-        r.leftFront.setPower(power);
-    }
-    public void mecanumStrafeLeft(double power) {
-        r.rightBack.setPower(0.8*power);
-        r.rightFront.setPower(power);
-        r.leftBack.setPower(0.8*power);
-        r.leftFront.setPower(-power);
-    }
-    public void mecanumStrafeRight(double power) {
-        r.rightBack.setPower(-0.8*power);
-        r.rightFront.setPower(-power);
-        r.leftBack.setPower(-0.8*power);
-        r.leftFront.setPower(power);
-    }
-    public void rest() {
-        r.rightBack.setPower(0);
-        r.rightFront.setPower(0);
-        r.leftBack.setPower(0);
-        r.leftFront.setPower(0);
-    }
 }

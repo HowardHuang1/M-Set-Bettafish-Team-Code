@@ -24,7 +24,6 @@ public class MotorTest extends LinearOpMode {
             r.leftFront.setPower(0.2);
             r.rightBack.setPower(0.2);
             r.rightFront.setPower(0.2);
-            sleep(10000);
             idle();
         }
         r.leftBack.setPower(0);

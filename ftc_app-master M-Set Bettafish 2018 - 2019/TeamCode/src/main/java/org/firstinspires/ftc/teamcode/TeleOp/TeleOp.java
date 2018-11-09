@@ -10,11 +10,11 @@ import static java.lang.Math.abs;
  * Created by tejbade on 10/8/18.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOp")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "TeleOp")
 public class TeleOp extends LinearOpMode {
     Drive d = new Drive();
-    int factor = -1;
-    int speed = 1;
+    int direction = 1;
+
     public void runOpMode() throws InterruptedException {
         // Initialize the drive system variables.
         // The init() method of the hardware class does all the work here
@@ -33,22 +33,22 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 1
 
             if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y > 0.1)
-                d.forward(Math.abs(gamepad1.left_stick_y) * factor);
+                d.forward(Math.abs(gamepad1.left_stick_y) * direction);
             else if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y < -0.1)
-                d.backward(Math.abs(gamepad1.left_stick_y) * factor);
+                d.backward(Math.abs(gamepad1.left_stick_y) * direction);
             else if (gamepad1.right_stick_x > 0.1)
                 d.turnRight(Math.abs(gamepad1.right_stick_x));
             else if (gamepad1.right_stick_x < -0.1)
                 d.turnLeft(Math.abs(gamepad1.right_stick_x));
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x > 0.1)
-                d.mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * factor);
+                d.mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * direction);
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x < -0.1)
-                d.mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * factor);
+                d.mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * direction);
             else
                 d.rest();
 
-            if(gamepad1.left_stick_button)
-                factor = -factor;
+            if (gamepad1.left_stick_button)
+                direction = -direction;
 
             //Gamepad 2
 

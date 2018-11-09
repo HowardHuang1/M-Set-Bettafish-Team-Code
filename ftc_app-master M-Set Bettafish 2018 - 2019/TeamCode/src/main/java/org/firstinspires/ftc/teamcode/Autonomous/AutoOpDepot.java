@@ -27,7 +27,6 @@ import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
 public class AutoOpDepot extends LinearOpMode {
 
     Drive r = new Drive();
-    AutoOpDepot auto = new AutoOpDepot();
 
     public void runOpMode() throws InterruptedException {
         r.init(hardwareMap, telemetry);
@@ -53,26 +52,25 @@ public class AutoOpDepot extends LinearOpMode {
             r.rest();
 
             r.intake.setPower(1);
-            sleep(6000);
+            sleep(3000);
             r.intake.setPower(0);
             r.backward(1);
-            sleep(300);
+            sleep(100);
             r.rest();
 
-            //sampling
+            r.turnRight(1);
+            sleep(100);
+            r.forward(1);
+            sleep(600);
+            r.rest();
 
-            //depot
-            d.forward(1, 1000);
-            sleep(500);
-            d.restMotors();
-            r.intake.setPower(1);
-            sleep(10000);
-            r.intake.setPower(0);
-            d.backward(1, 300);
-            d.rest();
+            while(opModeIsActive()) {
+                r.bottomIntakeArm.setPower(1);
+                r.topIntakeArm.setPower(1);
+            }
 
-            //crater
-                d.
+            r.stop();
+
 
     }
 

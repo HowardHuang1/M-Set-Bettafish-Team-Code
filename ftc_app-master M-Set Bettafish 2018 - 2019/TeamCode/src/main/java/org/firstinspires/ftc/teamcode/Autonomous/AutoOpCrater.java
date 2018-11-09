@@ -24,12 +24,12 @@ import org.firstinspires.ftc.teamcode.Robot;
 public class AutoOpCrater extends LinearOpMode {
 
     Robot r = new Robot();
-    AutoOpBase auto = new AutoOpBase();
+
 
     public void runOpMode() throws InterruptedException {
         r.init(hardwareMap, telemetry);
         while (opModeIsActive()) {
-            hang()
+
 
 
         }

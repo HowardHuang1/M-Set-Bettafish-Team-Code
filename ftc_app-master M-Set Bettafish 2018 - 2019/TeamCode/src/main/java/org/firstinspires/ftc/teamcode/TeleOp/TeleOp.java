@@ -13,7 +13,8 @@ import static java.lang.Math.abs;
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="TeleOp")
 public class TeleOp extends LinearOpMode {
     Drive d = new Drive();
-    int factor = 1;
+    int factor = -1;
+    int speed = 1;
     public void runOpMode() throws InterruptedException {
         // Initialize the drive system variables.
         // The init() method of the hardware class does all the work here

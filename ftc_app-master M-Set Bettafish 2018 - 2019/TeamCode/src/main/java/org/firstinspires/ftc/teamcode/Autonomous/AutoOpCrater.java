@@ -21,7 +21,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
 
 @Autonomous(name="Crater")
-public class AutoOpCrater extends LinearOpMode {
+public class AutoOpCrater extends AutoOpBase {
 
     Robot r = new Robot();
 

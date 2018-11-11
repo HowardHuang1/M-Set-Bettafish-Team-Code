@@ -24,7 +24,7 @@ import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
 
 
 @Autonomous(name="Depot")
-public class AutoOpDepot extends LinearOpMode {
+public class AutoOpDepot extends AutoOpBase {
 
     Drive r = new Drive();
 

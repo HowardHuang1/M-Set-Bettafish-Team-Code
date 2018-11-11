@@ -24,7 +24,7 @@ import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
 
 
 @Autonomous(name = "Basic")
-public class AutoOpBasic extends LinearOpMode {
+public class AutoOpBasic extends AutoOpBase {
 
     Drive r = new Drive();
 

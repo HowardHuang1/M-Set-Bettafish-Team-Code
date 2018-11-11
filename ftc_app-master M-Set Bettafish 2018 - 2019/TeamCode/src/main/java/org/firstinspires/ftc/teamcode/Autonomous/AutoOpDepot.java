@@ -24,7 +24,7 @@ import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
 
 
 @Autonomous(name="Depot")
-public class AutoOpDepot extends AutoOpBase {
+public class AutoOpDepot extends AutoOpBasic {
 
     Drive r = new Drive();
 
@@ -32,44 +32,15 @@ public class AutoOpDepot extends AutoOpBase {
         r.init(hardwareMap, telemetry);
 
         waitForStart();
-            //hang
-            r.winch.setPower(1);
-            sleep(4000);
+        basicFS(); // condensed basic first steps from AutoOpBasic.
 
-            r.winch.setPower(0);
-            r.mecanumStrafeLeft(1);
-            sleep(800);
-
-            r.rest();
-            sleep(300);
-
-            r.backward(1);
-            sleep(100);
+        // release the team marker
+        while(opModeIsActive()) {
             r.bottomIntakeArm.setPower(1);
             r.topIntakeArm.setPower(1);
-            r.forward(1);
-            sleep(1000);
-            r.rest();
+        }
 
-            r.intake.setPower(1);
-            sleep(3000);
-            r.intake.setPower(0);
-            r.backward(1);
-            sleep(100);
-            r.rest();
-
-            r.turnRight(1);
-            sleep(100);
-            r.forward(1);
-            sleep(600);
-            r.rest();
-
-            while(opModeIsActive()) {
-                r.bottomIntakeArm.setPower(1);
-                r.topIntakeArm.setPower(1);
-            }
-
-            r.stop();
+        r.stop();
 
 
     }

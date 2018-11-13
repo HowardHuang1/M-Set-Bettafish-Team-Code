@@ -5,15 +5,26 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.DigitalChannel;
 
-import android.graphics.drawable.GradientDrawable.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRColor;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+
+
+import java.util.Locale;
 
 /**
  * Created by tejbade on 10/6/18.
@@ -41,9 +52,9 @@ public class Robot {
     public static final double DRIVE_SPEED_SLOW = 0.25;
     public static final double DRIVE_SPEED_NORMAL = 0.5;
     public static final double DRIVE_SPEED_FAST = 1.0;
-    public static final double TURN_SPEED_SLOW    = 0.15;
-    public static final double TURN_SPEED_NORMAL  = 0.3;
-    public static final double TURN_SPEED_FAST    = 1;
+    public static final double TURN_SPEED_SLOW = 0.15;
+    public static final double TURN_SPEED_NORMAL = 0.3;
+    public static final double TURN_SPEED_FAST = 1;
 
     public static final int LEAN_LEFT = -1;
     public static final int GO_STRAIGHT = 0;
@@ -54,7 +65,7 @@ public class Robot {
     /* Initialize Hardware Map */
     HardwareMap hardwareMap = null;
 
-    DigitalChannel glyphSensor;
+    BNO055IMU imu;
 
     // The IMU sensor object
     //BNO055IMU imu;
@@ -87,9 +98,6 @@ public class Robot {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        // reset encoder values
-        //leftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //rightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -112,6 +120,11 @@ public class Robot {
 //    static final double DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
 //    static final double WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
 //    static final double COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * Math.PI);
+
+        stopDriving();
+
+
+        initGyro();
 
 
     }
@@ -187,10 +200,10 @@ public class Robot {
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         leftBack.setDirection(DcMotor.Direction.FORWARD);
         leftFront.setDirection(DcMotor.Direction.FORWARD);
-        leftBack.setPower(-power);
-        leftFront.setPower(-power);
-        rightBack.setPower(-power);
-        rightFront.setPower(-power);
+        leftBack.setPower(power);
+        leftFront.setPower(power);
+        rightBack.setPower(power);
+        rightFront.setPower(power);
     }
 
     public void turnRight(double power) {
@@ -213,20 +226,16 @@ public class Robot {
     }
 
     public float getCurrentAngle() {
-        return 1;
+        return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
     }
 
-    /*
     public void initGyro() {
-        // Set up the parameters with which we will use our IMU. Note that integration
-        // algorithm here just reports accelerations to the logcat log; it doesn't actually
-        // provide positional information.
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
-        parameters.loggingEnabled      = true;
-        parameters.loggingTag          = "IMU";
+        parameters.loggingEnabled = true;
+        parameters.loggingTag = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
         // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
@@ -235,8 +244,8 @@ public class Robot {
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
 
-        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        gravity  = imu.getGravity();
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        gravity = imu.getGravity();
+
     }
-*/
 }

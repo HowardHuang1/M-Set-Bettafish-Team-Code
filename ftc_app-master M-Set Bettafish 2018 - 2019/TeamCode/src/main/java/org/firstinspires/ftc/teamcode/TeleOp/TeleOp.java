@@ -63,9 +63,9 @@ public class TeleOp extends LinearOpMode {
                 d.topIntakeArm.setPower(0);
             }
 
-            if (gamepad2.left_bumper) {
+            if (gamepad2.right_bumper) {
                 d.intake.setPower(-1);
-            } else if (gamepad2.right_bumper) {
+            } else if (gamepad2.left_bumper) {
                 d.intake.setPower(1);
             } else
                 d.intake.setPower(0);

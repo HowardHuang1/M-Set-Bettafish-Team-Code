@@ -24,11 +24,11 @@ import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
 
 
 @Autonomous(name = "Basic")
-public class AutoOpBasic extends LinearOpMode {
+public abstract class AutoOpBasic extends AutoOpBase {
 
     Drive r = new Drive();
 
-    public void runOpMode() throws InterruptedException {
+    public void basicFS() throws InterruptedException {
         r.init(hardwareMap, telemetry);
 
         waitForStart();
@@ -63,11 +63,6 @@ public class AutoOpBasic extends LinearOpMode {
         r.forward(1);
         sleep(600);
         r.rest();
-
-        while (opModeIsActive()) {
-            r.bottomIntakeArm.setPower(1);
-            r.topIntakeArm.setPower(1);
-        }
 
         r.stop();
 

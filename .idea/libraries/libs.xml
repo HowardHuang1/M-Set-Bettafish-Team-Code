@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/Inspection-release-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/FtcCommon-release-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/RobotCore-release-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/Hardware-release-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/Vuforia.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ftc_app-master M-Set Bettafish 2018 - 2019/libs/Blocks-release-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -21,7 +21,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
 
 @Autonomous(name="Crater")
-public class AutoOpCrater extends LinearOpMode {
+public class AutoOpCrater extends AutoOpBasic {
 
     Robot r = new Robot();
 
@@ -30,7 +30,13 @@ public class AutoOpCrater extends LinearOpMode {
         r.init(hardwareMap, telemetry);
         while (opModeIsActive()) {
 
-
+            basicFS(); // basic first steps, all condensed in AutoOpBasic
+            r.bottomIntakeArm.setPower(1);
+            r.topIntakeArm.setPower(1);
+            sleep(10000);
+            r.bottomIntakeArm.setPower(0);
+            r.topIntakeArm.setPower(0);
+            // intake can't run for full autonomous because it needs to go to the crater and extend the intake
 
         }
 

@@ -37,14 +37,11 @@ public class Robot {
     public DcMotor leftBack;
     public DcMotor rightBack;
     public DcMotor winch;
-    public DcMotor bottomIntakeArm; // constantly runs
-    public DcMotor topIntakeArm;
+    public DcMotor intakeArm;
     public DcMotor intake;
-    public SensorMRGyro gyro;
-    public ColorSensor left, right;
 
     // preset speeds
-    public static final double COUNTS_PER_MOTOR_REV = 1120;    // eg: NeveRest Motor Encoder
+    public static final double COUNTS_PER_MOTOR_REV = 1120;    // Motor Encoder
     public static final double DRIVE_GEAR_REDUCTION = 1.0;     // This is < 1.0 if geared UP
     public static final double WHEEL_DIAMETER_INCHES = 4.0;     // For figuring circumference
     public static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * Math.PI);
@@ -71,8 +68,8 @@ public class Robot {
     //BNO055IMU imu;
 
     // State used for updating telemetry
-    Orientation angles;
-    Acceleration gravity;
+    public Orientation angles;
+    public Acceleration gravity;
 
     Telemetry telemetry;
 
@@ -87,8 +84,7 @@ public class Robot {
         leftBack = hardwareMap.get(DcMotor.class, "lb");
         rightBack = hardwareMap.get(DcMotor.class, "rb");
         winch = hardwareMap.get(DcMotor.class, "wi");
-        bottomIntakeArm = hardwareMap.get(DcMotor.class, "bi");
-        topIntakeArm = hardwareMap.get(DcMotor.class, "ti");
+        intakeArm = hardwareMap.get(DcMotor.class, "ia");
         intake = hardwareMap.get(DcMotor.class, "in");
 
 
@@ -123,9 +119,7 @@ public class Robot {
 
         stopDriving();
 
-
         initGyro();
-
 
     }
 
@@ -156,6 +150,17 @@ public class Robot {
         driveForward(power, power);
     }
 
+    public void driveForward(double leftPower, double rightPower) {
+        rightBack.setDirection(DcMotor.Direction.FORWARD);
+        rightFront.setDirection(DcMotor.Direction.REVERSE);
+        leftBack.setDirection(DcMotor.Direction.REVERSE);
+        leftFront.setDirection(DcMotor.Direction.REVERSE);
+        rightBack.setPower(rightPower);
+        rightFront.setPower(rightPower);
+        leftBack.setPower(leftPower);
+        leftFront.setPower(leftPower);
+    }
+
     public void driveForward(double power, int lean) {
         if (lean == GO_STRAIGHT) {
             driveForward(power, power);
@@ -166,15 +171,12 @@ public class Robot {
         }
     }
 
-    public void driveForward(double leftPower, double rightPower) {
-        rightBack.setDirection(DcMotor.Direction.REVERSE);
-        rightFront.setDirection(DcMotor.Direction.FORWARD);
-        leftBack.setDirection(DcMotor.Direction.FORWARD);
-        leftFront.setDirection(DcMotor.Direction.FORWARD);
-        rightBack.setPower(rightPower);
-        rightFront.setPower(rightPower);
-        leftBack.setPower(leftPower);
-        leftFront.setPower(leftPower);
+    public void driveBackward(double power) {
+        driveForward(-power);
+    }
+
+    public void driveBackward(double leftPower, double rightPower) {
+        driveForward(-leftPower, -rightPower);
     }
 
     public void driveBackward(double power, int lean) {
@@ -185,14 +187,6 @@ public class Robot {
         } else if (lean == LEAN_RIGHT) {
             driveBackward(power, power - power * LEAN_CORRECTION);
         }
-    }
-
-    public void driveBackward(double leftPower, double rightPower) {
-        driveForward(-leftPower, -rightPower);
-    }
-
-    public void driveBackward(double power) {
-        driveForward(-power);
     }
 
     public void turnLeft(double power) {
@@ -219,6 +213,16 @@ public class Robot {
 
     public void stopDriving() {
         driveForward(0);
+    }
+
+    public void stop() {
+        rightBack.setPower(0);
+        rightFront.setPower(0);
+        leftBack.setPower(0);
+        leftFront.setPower(0);
+        winch.setPower(0);
+        intakeArm.setPower(0);
+        intake.setPower(0);
     }
 
     public boolean isBusy() {

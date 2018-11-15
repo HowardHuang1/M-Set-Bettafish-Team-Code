@@ -45,15 +45,5 @@ public class Drive extends Robot {
         leftBack.setPower(0);
         leftFront.setPower(0);
     }
-    public void stop() {
-        rightBack.setPower(0);
-        rightFront.setPower(0);
-        leftBack.setPower(0);
-        leftFront.setPower(0);
-        winch.setPower(0);
-        bottomIntakeArm.setPower(0);
-        topIntakeArm.setPower(0);
-        intake.setPower(0);
-    }
 
 }

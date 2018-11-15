@@ -18,30 +18,28 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
-import org.firstinspires.ftc.teamcode.Robot;
-import org.firstinspires.ftc.teamcode.TeleOp.Drive;
 import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
+import org.firstinspires.ftc.teamcode.Robot;
 
-
-@Autonomous(name="Depot")
-public class AutoOpDepot extends AutoOpBase {
-
-    Drive r = new Drive();
+@Autonomous(name="Test Encoders")
+public class TestEncoders extends AutoOpBase {
 
     public void runOpMode() throws InterruptedException {
-        r.init(hardwareMap, telemetry);
+        initRobot();
 
         waitForStart();
-        //basicFS(); // condensed basic first steps from AutoOpBasic.
 
-        // release the team marker
-        while(opModeIsActive()) {
-            //r.bottomIntakeArm.setPower(1);
-            //r.topIntakeArm.setPower(1);
+        telemetry.addData("Start: ", r.leftBack.getCurrentPosition());
+        telemetry.update();
+
+
+
+        telemetry.addData("End: ", r.leftBack.getCurrentPosition());
+        telemetry.update();
+
+        while (opModeIsActive()) {
+            idle();
         }
-
-        r.stop();
-
 
     }
 

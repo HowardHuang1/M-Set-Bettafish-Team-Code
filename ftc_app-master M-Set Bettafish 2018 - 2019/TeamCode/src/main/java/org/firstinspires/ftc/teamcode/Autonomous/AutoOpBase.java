@@ -22,6 +22,13 @@ public abstract class AutoOpBase extends LinearOpMode {
         r.init(hardwareMap, telemetry);
         r.resetEncoders();
         r.setUseEncoderMode();
+        r.intakeArm.setPower(-0.8);
+    }
+
+    public void startRobot() throws InterruptedException {
+        r.winch.setPower(1);
+        sleep(4000);
+        r.winch.setPower(0);
     }
 
     public void driveForwardDistance(double maintainAngle, int forwardInches, double driveSpeed) {
@@ -60,9 +67,9 @@ public abstract class AutoOpBase extends LinearOpMode {
                 telemetry.update();
             }
 
-            r.stopDriving();
-            r.setUseEncoderMode();
         }
+        r.stopDriving();
+        r.setUseEncoderMode();
     }
 
     public void driveForwardDistance(int forwardInches, double driveSpeed) {
@@ -141,7 +148,6 @@ public abstract class AutoOpBase extends LinearOpMode {
     public void driveBackwardDistance(int backwardInches, double driveSpeed) {
         driveForwardDistance(-1 * backwardInches, driveSpeed);
     }
-
 
     public void turnLeftToAngle(double targetAngle) {
         float currentAngle = r.getCurrentAngle();
@@ -224,19 +230,4 @@ public abstract class AutoOpBase extends LinearOpMode {
         r.stopDriving();
     }
 
-    public boolean isLeftJewelGold() {
-        r.left.enableLed(true);
-        if (r.left.red() > r.left.blue())
-            return true;
-        else
-            return false;
-    }
-
-    public boolean isRightJewelGold() {
-        r.right.enableLed(true);
-        if (r.right.red() > r.right.blue())
-            return true;
-        else
-            return false;
-    }
 }

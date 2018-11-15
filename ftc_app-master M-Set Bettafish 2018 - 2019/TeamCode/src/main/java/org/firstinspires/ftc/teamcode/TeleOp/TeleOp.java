@@ -53,14 +53,11 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 2
 
             if (gamepad2.y) {
-                d.bottomIntakeArm.setPower(-1);
-                d.topIntakeArm.setPower(1);
+                d.intakeArm.setPower(1);
             } else if (gamepad2.a) {
-                d.bottomIntakeArm.setPower(1);
-                d.topIntakeArm.setPower(-1);
+                d.intakeArm.setPower(-1);
             } else {
-                d.bottomIntakeArm.setPower(0);
-                d.topIntakeArm.setPower(0);
+                d.intakeArm.setPower(0);
             }
 
             if (gamepad2.right_bumper) {
@@ -79,7 +76,9 @@ public class TeleOp extends LinearOpMode {
 
             idle();
         }
+
         d.rest();
+
     }
 
 }

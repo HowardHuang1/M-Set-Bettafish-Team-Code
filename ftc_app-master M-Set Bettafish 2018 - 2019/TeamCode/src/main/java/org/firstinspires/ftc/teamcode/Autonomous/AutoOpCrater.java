@@ -28,37 +28,56 @@ public class AutoOpCrater extends AutoOpBase {
 
         waitForStart();
 
-        startRobot();
+        startRobot(); //drop down and strafe out of hook
 
-        r.rightBack.setPower(0.8);
-        r.rightFront.setPower(1);
-        r.leftBack.setPower(0.8);
-        r.leftFront.setPower(-1);
+        telemetry.addData("Step 1: ", "Completed");
+        telemetry.update();
+
+        double maintainAngle = r.getCurrentAngle();
+        driveForwardDistance(maintainAngle, 19, 0.5); //drive forward away from lander
+        sleep(200);
+
+        turnLeftToAngle(90);
+        sleep(200);
+
+        maintainAngle = r.getCurrentAngle();
+        driveForwardDistance(maintainAngle, 46, 0.5); //drive to wall
+        sleep(1000);
+
+        double angle = r.getCurrentAngle()+1;
+
+        turnLeftToAngle(angle); //turn to depot
         sleep(500);
 
-        driveForwardDistance(r.getCurrentAngle(), 15, 1);
+        maintainAngle = r.getCurrentAngle();
+        driveForwardDistance(maintainAngle, 27, 0.5); //drive to depot
 
-        r.rightBack.setPower(-0.8);
-        r.rightFront.setPower(-1);
-        r.leftBack.setPower(-0.8);
-        r.leftFront.setPower(1);
-        sleep(5000);
-
-        turnLeftToAngle(135);
-
-        driveForwardDistance(r.getCurrentAngle(), 12, 1);
+        telemetry.addData("Step 2: ", "Completed");
+        telemetry.update();
 
         r.intakeArm.setPower(1);
-        r.intake.setPower(-1);
-        sleep(400);
+        sleep(200);
+        r.intake.setPower(1);
+        sleep(4000); //spin outward for 4 secs.
         r.intake.setPower(0);
         r.intakeArm.setPower(-1);
+        sleep(1500);
+        r.intakeArm.setPower(0);
 
-        turnLeftToAngle(180);
+        telemetry.addData("Step 3: ", "Completed");
+        telemetry.update();
 
-        driveForwardDistance(65, 1);
+        double angle1 = r.getCurrentAngle() - 180;
+        turnRightToAngle(angle1); //turn to crater
+        sleep(100);
 
-        r.intakeArm.setPower(-1);
+        maintainAngle = r.getCurrentAngle();
+        driveForwardDistance(maintainAngle, 65, 1); //drive to crater
+
+        r.intakeArm.setPower(1); //put intake in crater
+
+        telemetry.addData("Step 4: ", "Completed");
+        telemetry.update();
 
         while (opModeIsActive()) {
             idle();

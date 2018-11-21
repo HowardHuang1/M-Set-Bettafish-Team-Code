@@ -20,8 +20,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
 import org.firstinspires.ftc.teamcode.Robot;
 
-@Autonomous(name="Depot")
-public class AutoOpDepot extends AutoOpBase {
+@Autonomous(name="Depot Strafe")
+public class AutoOpDepotStrafe extends AutoOpBase {
 
     public void runOpMode() throws InterruptedException {
         initRobot();
@@ -31,10 +31,9 @@ public class AutoOpDepot extends AutoOpBase {
         startRobot(); //drop down and strafe
 
         driveForwardDistance(r.getCurrentAngle(), 32, 0.8); //drive forward away from lander
-
-        double angle = r.getCurrentAngle() - 7;
-        turnRightToAngle(angle);
-        sleep(200);
+        double angle = r.getCurrentAngle()+3;
+        r.turnLeft(angle);
+        mecanumStrafeRight(0.7, 2500); //align with wall
 
         r.intakeArm.setPower(0.5);
         sleep(200);
@@ -45,13 +44,14 @@ public class AutoOpDepot extends AutoOpBase {
         sleep(1500);
         r.intakeArm.setPower(0);
 
-        driveForwardDistance(5, 0.7);
-        angle = r.getCurrentAngle() - 102;
+        mecanumStrafeLeft(0.8, 500);
+        driveBackwardDistance(15, 0.8);
+        angle = r.getCurrentAngle() - 180;
         turnRightToAngle(angle); //turn to crater
         sleep(100);
 
         double maintainAngle = r.getCurrentAngle();
-        driveForwardDistance(maintainAngle, 70, 1); //drive to crater
+        driveForwardDistance(maintainAngle, 65, 1); //drive to crater
 
         r.intakeArm.setPower(1); //put intake in crater
 

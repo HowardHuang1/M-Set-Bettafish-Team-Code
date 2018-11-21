@@ -22,13 +22,15 @@ public abstract class AutoOpBase extends LinearOpMode {
         r.init(hardwareMap, telemetry);
         r.resetEncoders();
         r.setUseEncoderMode();
-        r.intakeArm.setPower(-0.8);
+        r.initGyro();
     }
 
     public void startRobot() throws InterruptedException {
-        r.winch.setPower(1);
-        sleep(4000);
+        r.winch.setPower(-1);
+        sleep(4200);
         r.winch.setPower(0);
+        driveBackwardDistance(2, 0.3);
+        mecanumStrafeRight(0.8, 400);
     }
 
     public void driveForwardDistance(double maintainAngle, int forwardInches, double driveSpeed) {
@@ -229,5 +231,24 @@ public abstract class AutoOpBase extends LinearOpMode {
 
         r.stopDriving();
     }
+
+    public void mecanumStrafeLeft(double power, long time) {
+        if(opModeIsActive()) {
+            r.rightBack.setPower(-0.8 * power);
+            r.rightFront.setPower(power);
+            r.leftBack.setPower(0.8 * power);
+            r.leftFront.setPower(-power);
+            sleep(time);
+            r.rightBack.setPower(0);
+            r.rightFront.setPower(0);
+            r.leftBack.setPower(0);
+            r.leftFront.setPower(0);
+        }
+    }
+
+    public void mecanumStrafeRight(double power, long time) {
+        mecanumStrafeLeft(-power, time);
+    }
+
 
 }

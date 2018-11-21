@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
@@ -35,7 +36,7 @@ public class Robot {
     public DcMotor leftFront;
     public DcMotor rightFront;
     public DcMotor leftBack;
-    public DcMotor rightBack;
+    public DcMotor rightBack; //reverse
     public DcMotor winch;
     public DcMotor intakeArm;
     public DcMotor intake;
@@ -57,21 +58,24 @@ public class Robot {
     public static final int GO_STRAIGHT = 0;
     public static final int LEAN_RIGHT = 1;
     public static final double LEAN_CORRECTION = 0.20;
-    final double SCALE_FACTOR = 255;
 
-    /* Initialize Hardware Map */
+    public ColorSensor leftSensor;
+    public Servo leftServo;
+    public Servo rightServo;
+    public ColorSensor rightSensor;
+
+    /* Initialize Hardware Map and Telemetry */
     HardwareMap hardwareMap = null;
-
-    BNO055IMU imu;
+    Telemetry telemetry = null;
 
     // The IMU sensor object
     //BNO055IMU imu;
 
+    BNO055IMU imu;
+
     // State used for updating telemetry
     public Orientation angles;
     public Acceleration gravity;
-
-    Telemetry telemetry;
 
     public void init(HardwareMap hardwareMap, Telemetry telemetry) throws InterruptedException {
         // Save reference to Hardware map
@@ -83,10 +87,17 @@ public class Robot {
         rightFront = hardwareMap.get(DcMotor.class, "rf");
         leftBack = hardwareMap.get(DcMotor.class, "lb");
         rightBack = hardwareMap.get(DcMotor.class, "rb");
+
         winch = hardwareMap.get(DcMotor.class, "wi");
         intakeArm = hardwareMap.get(DcMotor.class, "ia");
         intake = hardwareMap.get(DcMotor.class, "in");
 
+        /*
+        leftSensor = hardwareMap.get(ColorSensor.class, "lcs");
+        rightSensor = hardwareMap.get(ColorSensor.class, "rcs");
+        leftServo = hardwareMap.get(Servo.class, "ls");
+        rightServo = hardwareMap.get(Servo.class, "rs");
+        */
 
         /* Initialize Telemetry */
 
@@ -118,8 +129,6 @@ public class Robot {
 //    static final double COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * Math.PI);
 
         stopDriving();
-
-        initGyro();
 
     }
 

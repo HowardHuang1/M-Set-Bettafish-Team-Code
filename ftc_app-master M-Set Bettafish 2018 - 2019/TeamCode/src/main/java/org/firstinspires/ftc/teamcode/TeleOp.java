@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
 
@@ -12,13 +12,13 @@ import static java.lang.Math.abs;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "TeleOp")
 public class TeleOp extends LinearOpMode {
-    Drive d = new Drive();
+    Robot r = new Robot();
     int direction = 1;
 
     public void runOpMode() throws InterruptedException {
         // Initialize the drive system variables.
         // The init() method of the hardware class does all the work here
-        d.init(hardwareMap, telemetry);
+        r.init(hardwareMap, telemetry);
         telemetry.update();
         waitForStart();
 
@@ -33,19 +33,19 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 1
 
             if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y < 0.2)
-                d.forward(Math.abs(gamepad1.left_stick_y) * direction);
+                r.driveForward(Math.abs(gamepad1.left_stick_y) * direction);
             else if (Math.abs(gamepad1.left_stick_y) > Math.abs(gamepad1.left_stick_x) && gamepad1.left_stick_y > -0.2)
-                d.backward(Math.abs(gamepad1.left_stick_y) * direction);
+                r.driveBackward(Math.abs(gamepad1.left_stick_y) * direction);
             else if (gamepad1.right_stick_x > 0.2)
-                d.turnRight(Math.abs(gamepad1.right_stick_x));
+                r.turnRight(Math.abs(gamepad1.right_stick_x));
             else if (gamepad1.right_stick_x < -0.2)
-                d.turnLeft(Math.abs(gamepad1.right_stick_x));
+                r.turnLeft(Math.abs(gamepad1.right_stick_x));
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x > 0.2)
-                d.mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * direction);
+                r.mecanumStrafeRight(Math.abs(gamepad1.left_stick_x) * direction);
             else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y) && gamepad1.left_stick_x < -0.2)
-                d.mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * direction);
+                r.mecanumStrafeLeft(Math.abs(gamepad1.left_stick_x) * direction);
             else
-                d.rest();
+                r.stopDriving();
 
             if (gamepad1.left_stick_button)
                 direction = -direction;
@@ -53,31 +53,31 @@ public class TeleOp extends LinearOpMode {
             //Gamepad 2
 
             if (gamepad2.y) {
-                d.intakeArm.setPower(-1);
+                r.intakeArm.setPower(-1);
             } else if (gamepad2.a) {
-                d.intakeArm.setPower(1);
+                r.intakeArm.setPower(1);
             } else {
-                d.intakeArm.setPower(0);
+                r.intakeArm.setPower(0);
             }
 
             if (gamepad2.right_bumper) {
-                d.intake.setPower(-0.6);
+                r.intake.setPower(-0.6);
             } else if (gamepad2.left_bumper) {
-                d.intake.setPower(0.6);
+                r.intake.setPower(0.6);
             } else
-                d.intake.setPower(0);
+                r.intake.setPower(0);
 
             if (gamepad2.dpad_up)
-                d.winch.setPower(-1);
+                r.winch.setPower(-1);
             else if (gamepad2.dpad_down)
-                d.winch.setPower(1);
+                r.winch.setPower(1);
             else
-                d.winch.setPower(0);
+                r.winch.setPower(0);
 
             idle();
         }
 
-        d.rest();
+        r.stop();
 
     }
 

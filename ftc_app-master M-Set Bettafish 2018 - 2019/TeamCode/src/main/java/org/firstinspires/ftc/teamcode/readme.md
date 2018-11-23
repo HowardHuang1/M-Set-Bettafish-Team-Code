@@ -7,5 +7,5 @@ lf=0, rf=1, rb=2, lb=3
 
 exphub2
 
-wi=0, in=1, bi=2, ti=3
+wi=0, ia=1, in=2
 

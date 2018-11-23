@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode;
 
 /**
  * Created by tejbade on 10/6/18.
@@ -30,7 +30,7 @@ public abstract class AutoOpBase extends LinearOpMode {
         sleep(4200);
         r.winch.setPower(0);
         driveBackwardDistance(2, 0.3);
-        mecanumStrafeRight(0.8, 400);
+        mecanumStrafeRightTime(0.8, 400);
     }
 
     public void driveForwardDistance(double maintainAngle, int forwardInches, double driveSpeed) {
@@ -232,23 +232,20 @@ public abstract class AutoOpBase extends LinearOpMode {
         r.stopDriving();
     }
 
-    public void mecanumStrafeLeft(double power, long time) {
+    public void mecanumStrafeLeftTime(double power, long time) {
         if(opModeIsActive()) {
-            r.rightBack.setPower(-0.8 * power);
-            r.rightFront.setPower(power);
-            r.leftBack.setPower(0.8 * power);
-            r.leftFront.setPower(-power);
+            r.mecanumStrafeLeft(power);
             sleep(time);
-            r.rightBack.setPower(0);
-            r.rightFront.setPower(0);
-            r.leftBack.setPower(0);
-            r.leftFront.setPower(0);
+            r.stopDriving();
         }
     }
 
-    public void mecanumStrafeRight(double power, long time) {
-        mecanumStrafeLeft(-power, time);
+    public void mecanumStrafeRightTime(double power, long time) {
+        if(opModeIsActive()) {
+            r.mecanumStrafeRight(power);
+            sleep(time);
+            r.stopDriving();
+        }
     }
-
 
 }

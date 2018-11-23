@@ -1,25 +1,14 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
 
 /**
  * Created by tejbade on 10/6/18.
  */
 
-import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
-
 /**
  * Created by tejbade on 10/6/18.
  */
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
-import org.firstinspires.ftc.teamcode.Autonomous.AutoOpBase;
-import org.firstinspires.ftc.teamcode.Robot;
 
 @Autonomous(name="Test Encoders")
 public class TestEncoders extends AutoOpBase {

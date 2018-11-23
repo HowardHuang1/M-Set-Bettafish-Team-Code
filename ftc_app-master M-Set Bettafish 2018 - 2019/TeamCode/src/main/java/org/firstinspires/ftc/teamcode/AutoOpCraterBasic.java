@@ -1,27 +1,17 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
 
 /**
  * Created by tejbade on 10/6/18.
  */
 
-import com.qualcomm.robotcore.eventloop.opmode.*;
-import com.qualcomm.robotcore.hardware.*;
-
 /**
  * Created by tejbade on 10/6/18.
  */
-import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRGyro;
-import org.firstinspires.ftc.teamcode.Robot;
-
-@Autonomous(name="Crater")
-public class AutoOpCrater extends AutoOpBase {
+@Autonomous(name="CraterBasic")
+public class AutoOpCraterBasic extends AutoOpBase {
 
     public void runOpMode() throws InterruptedException {
         initRobot();
@@ -30,30 +20,9 @@ public class AutoOpCrater extends AutoOpBase {
 
         startRobot(); //drop down and strafe out of hook
 
-        telemetry.addData("Step 1: ", "Completed");
-        telemetry.update();
-
         double maintainAngle = r.getCurrentAngle();
         driveForwardDistance(maintainAngle, 19, 0.5); //drive forward away from lander
         sleep(200);
-
-        turnLeftToAngle(90);
-        sleep(200);
-
-        maintainAngle = r.getCurrentAngle();
-        driveForwardDistance(maintainAngle, 46, 0.5); //drive to wall
-        sleep(1000);
-
-        double angle = r.getCurrentAngle()+1;
-
-        turnLeftToAngle(angle); //turn to depot
-        sleep(500);
-
-        maintainAngle = r.getCurrentAngle();
-        driveForwardDistance(maintainAngle, 27, 0.5); //drive to depot
-
-        telemetry.addData("Step 2: ", "Completed");
-        telemetry.update();
 
         r.intakeArm.setPower(1);
         sleep(200);
